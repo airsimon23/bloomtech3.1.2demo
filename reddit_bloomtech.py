@@ -3,6 +3,8 @@
 # model = LinearRegression(normalize=True)
 # normalize = model.normalize 
 
+import datetime
+
 class User: 
     def __init__(self, mod_status, username, reputation):
     self.mod_status = mod_status
@@ -10,8 +12,9 @@ class User:
     self.reputation = reputation
     self.banned = False
 
-    def upvote_thread(self, thread, time_voted):
-        vote = Vote(up=True, time_voted=time_voted, voter=self.username thread=thread)
+    def upvote_thread(self, thread):
+        now = datetime.datetime.now()
+        vote = Vote(up=True, time_voted=now, voter=self.username thread=thread)
         return vote
 
 class Moderator():
